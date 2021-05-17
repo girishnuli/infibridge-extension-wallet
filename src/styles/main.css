@@ -1,0 +1,230 @@
+/* purgecss start ignore */
+@tailwind base;
+@tailwind components;
+/* purgecss end ignore */
+
+@tailwind utilities;
+
+/************** BASE STYLES START *****************/
+
+a {
+    @apply text-blue-500;
+}
+
+.hover-base {
+    @apply hover:text-white hover:bg-blue-500;
+}
+
+/************** BASE STYLES END *****************/
+
+/************** CONTROL STYLES START *****************/
+
+.label {
+    @apply block text-sm font-medium text-gray-700;
+}
+
+.textbox {
+    @apply appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm;
+}
+
+.grouped-textbox-label {
+    @apply inline-flex items-center px-3 rounded-l-md border border-r-0 border-gray-300 bg-gray-50 text-gray-500 text-sm;
+}
+
+.grouped-textbox-input {
+    @apply flex-1 block w-full focus:ring-blue-500 focus:border-blue-500 min-w-0 rounded-none rounded-r-md text-sm border-gray-300;
+}
+
+.checkbox {
+    @apply h-4 w-4 text-blue-500 focus:ring-blue-500 border-gray-300 rounded;
+}
+
+.primary-btn {
+    @apply w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-500 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500;
+}
+
+.primary-btn-inline {
+    @apply w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-blue-500 font-medium text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 text-sm;
+}
+
+.primary-btn-auto {
+    @apply flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-500 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500;
+}
+
+.secondary-btn {
+    @apply w-full flex justify-center py-2 px-4 border border-gray-800 rounded-md shadow-sm text-sm font-medium text-gray-800 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800;
+}
+
+.secondary-btn-inline {
+    @apply w-full inline-flex justify-center rounded-md border border-gray-800 shadow-sm px-4 py-2 bg-white font-medium text-gray-800 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 text-sm;
+}
+
+.danger-btn {
+    @apply w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-red-600 font-medium text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 text-sm;
+}
+
+.link-button {
+    @apply border-0 text-blue-500;
+    :hover {
+        cursor: pointer;
+    }
+}
+
+/************** CONTROL STYLES END *****************/
+
+.fixed-container {
+    width: 440px;
+    height: 600px;
+}
+
+.bl-li {
+    @apply flex flex-col w-44 text-center rounded-lg shadow-md;
+}
+
+.bl-normal {
+    @apply border border-gray-200;
+}
+
+.bl-active {
+    @apply border-2 border-blue-500;
+}
+
+.bl-logo-container {
+    @apply flex-1 flex flex-col px-8 py-4;
+}
+
+.bl-name {
+    @apply mt-6 text-gray-900 text-base font-medium;
+}
+
+.wallet-action-li {
+    @apply col-span-1 flex flex-col text-center rounded-lg shadow-md border border-gray-200;
+}
+
+.wallet-action-container {
+    @apply flex-1 flex flex-col p-4;
+}
+
+.wallet-action-icon {
+    @apply w-12 h-12 flex-shrink-0 mx-auto text-gray-600;
+}
+
+/* Menu background */
+.menu-bgnd {
+    @apply bg-black opacity-90 shadow-lg rounded-sm;
+}
+
+/* Network dropdown li */
+.network-dd-item {
+    @apply text-gray-100 cursor-default select-none relative py-2 pl-3 pr-9 hover-base;
+}
+
+/* Main menu item */
+.menu-item {
+    @apply group flex items-center px-4 py-2 text-base text-gray-100 hover:bg-blue-500 hover:text-white;
+}
+
+/* Icon style of main menu */
+.menu-item-icon {
+    @apply mr-3 h-5 w-5 text-gray-100 group-hover:text-white;
+}
+
+.account-item {
+    @apply p-3 flex items-center transition ease-in-out duration-150;
+}
+
+.account-seq {
+    @apply flex-shrink-0 block text-2xl font-bold text-gray-400;
+}
+
+.account-title {
+    @apply text-base font-medium text-gray-900;
+}
+
+.account-address {
+    @apply text-sm text-gray-500;
+}
+
+.account-balance {
+    @apply text-base text-black;
+}
+
+.badge-base {
+    @apply inline-flex ml-1 items-center px-1.5 py-0.5 rounded-full text-xs font-medium;
+}
+
+.normal-tab {
+    @apply border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 w-1/3 py-4 px-1 text-center border-b-2 font-medium text-sm;
+}
+
+.active-tab {
+    @apply border-gray-900 text-gray-700 w-1/3 py-4 px-1 text-center border-b-2 font-medium text-sm;
+}
+
+.transaction-item {
+    @apply p-3 flex items-center hover:bg-gray-100 transition ease-in-out duration-150;
+}
+
+.transaction-seq {
+    @apply account-seq;
+}
+
+.transaction-title {
+    @apply account-title;
+}
+
+.transaction-address {
+    @apply text-xs text-gray-500;
+}
+
+.transaction-balance {
+    @apply text-base text-black;
+}
+
+.transaction-details-svg {
+    @apply h-5 w-5 text-gray-500 hover:text-blue-500;
+}
+
+.empty-content {
+    @apply text-base text-gray-500 font-medium;
+}
+
+.cursor-pointer {
+    :hover {
+        cursor: pointer;
+    }
+}
+
+/* Celo funds breakdown styles */
+.celo-fbd-container {
+    @apply px-4 py-2;
+}
+
+.celo-fbd-title {
+    @apply text-sm font-normal text-gray-600;
+}
+
+.celo-fbd-amount {
+    @apply break-all text-base font-semibold text-blue-400;
+}
+
+.celo-fbd-conv {
+    @apply break-all mt-1 text-xs font-medium text-gray-500;
+}
+
+.text-blurred {
+    text-shadow: 0 0 12px black;
+    color: transparent;
+}
+
+.error {
+    @apply text-sm text-red-600;
+}
+
+.list-item-title {
+    @apply account-title;
+}
+
+.modal-title {
+    @apply text-base leading-6 font-medium text-gray-800;
+}
