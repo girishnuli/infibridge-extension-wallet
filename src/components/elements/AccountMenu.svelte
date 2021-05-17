@@ -24,7 +24,9 @@
     const addHDAccount = async () => {
         let walletLocked = true
 
-        const isUnlocked = activeWallet.isWalletUnlocked($activeWallet.wallet)
+        const isUnlocked = await activeWallet.isWalletUnlocked(
+            $activeWallet.wallet
+        )
         if (isUnlocked) {
             const password = await getActiveWalletPassword(
                 $activeWallet.wallet.id
@@ -55,10 +57,12 @@
         }
     }
 
-    const importAccount = () => {
+    const importAccount = async () => {
         isAccMenuOpen = false
 
-        const isUnlocked = activeWallet.isWalletUnlocked($activeWallet.wallet)
+        const isUnlocked = await activeWallet.isWalletUnlocked(
+            $activeWallet.wallet
+        )
         if (isUnlocked) {
             uiState.showImportEVMAccountModal()
         } else {
@@ -140,7 +144,7 @@
 
                     <div class="flow-root">
                         <button
-                            on:click={() => importAccount()}
+                            on:click={async () => await importAccount()}
                             class="-m-3 p-3 flex items-center text-sm font-medium text-gray-600 hover:bg-gray-300 transition ease-in-out duration-150">
                             <svg
                                 class="flex-shrink-0 h-5 w-5 text-gray-600"
@@ -194,9 +198,8 @@
                                             <!-- Heroicon key -->
                                             <svg
                                                 use:tooltip={{
-                                                    content: $_(
-                                                        'PvtKeyAccountTip'
-                                                    ),
+                                                    content:
+                                                        $_('PvtKeyAccountTip'),
                                                 }}
                                                 xmlns="http://www.w3.org/2000/svg"
                                                 class="h-5 w-5"
@@ -210,9 +213,10 @@
                                         {:else if account.accountType === AccountType.ImportedKeystore}
                                             <svg
                                                 use:tooltip={{
-                                                    content: $_(
-                                                        'KeystoreAccountTip'
-                                                    ),
+                                                    content:
+                                                        $_(
+                                                            'KeystoreAccountTip'
+                                                        ),
                                                 }}
                                                 class="h-5 w-5"
                                                 xmlns="http://www.w3.org/2000/svg"
@@ -226,9 +230,8 @@
                                         {:else if account.accountType === AccountType.WatchAddress}
                                             <svg
                                                 use:tooltip={{
-                                                    content: $_(
-                                                        'WatchAddressTip'
-                                                    ),
+                                                    content:
+                                                        $_('WatchAddressTip'),
                                                 }}
                                                 xmlns="http://www.w3.org/2000/svg"
                                                 class="h-5 w-5"
