@@ -23,6 +23,6 @@ export const navRoutes = {
 
     // Celo
     CeloIndexRoute: '/celo-index',
-    ChooseSendAddressRoute: '/celo-send-address',
-    SendCeloRoute: '/send-celo',
+    CeloSendAddressRoute: '/celo-send-address',
+    CeloReviewSendRoute: '/celo-review-send',
 }

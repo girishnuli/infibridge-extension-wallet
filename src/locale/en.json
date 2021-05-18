@@ -105,5 +105,8 @@
   "WatchAddressErrorMsg": "Invalid address",
   "PasteAddressHere": "Paste the address that you wish to watch (with the leading 0x).",
   "ImportAddress": "Import Address",
-  "WatchAddressTip": "Watch only account"
+  "WatchAddressTip": "Watch only account",
+  "RecipientAddress": "Recipient Address",
+  "OR": "OR",
+  "OwnAccounts": "Own Accounts"
 }

@@ -5,6 +5,7 @@
     import tooltip from '../../../utils/tooltip'
     import { onMount } from 'svelte'
     import { chains } from '../../../constants/constStrings'
+    import { navRoutes } from '../../../constants/navRoutes'
 
     const altCurrency = 'usd'
 
@@ -19,7 +20,7 @@
     })
 
     const send = () => {
-        push('/choosesendaddress')
+        push(navRoutes.CeloSendAddressRoute)
     }
 
 </script>
