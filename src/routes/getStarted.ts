@@ -4,9 +4,9 @@ import WalletAction from '../pages/getStarted/WalletAction.svelte'
 import { navRoutes } from '../constants/navRoutes'
 
 export default {
-    [navRoutes.Welcome]: Welcome,
+    [navRoutes.WelcomeRoute]: Welcome,
 
-    [navRoutes.WalletAction]: WalletAction,
+    [navRoutes.WalletActionRoute]: WalletAction,
 
-    [navRoutes.WalletReady]: WalletReady,
+    [navRoutes.WalletReadyRoute]: WalletReady,
 }

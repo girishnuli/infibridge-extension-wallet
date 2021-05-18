@@ -11,6 +11,7 @@
     import { onMount } from 'svelte'
     import { chains } from '../../../constants/constStrings'
     import { settings } from '../../../stores'
+    import { navRoutes } from '../../../constants/navRoutes'
 
     export let params: any = {}
 
@@ -49,7 +50,7 @@
         await generateNewHDWallet(seedPhrase, walletName, chain, password)
         await settings.loadSettings()
 
-        push('/wallet-ready')
+        push(navRoutes.WalletReadyRoute)
     }
 
 </script>

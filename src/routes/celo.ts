@@ -4,9 +4,9 @@ import CeloIndex from '../pages/celo/CeloIndex.svelte'
 import { navRoutes } from '../constants/navRoutes'
 
 export default {
-    [navRoutes.CeloIndex]: CeloIndex,
+    [navRoutes.CeloIndexRoute]: CeloIndex,
 
-    [navRoutes.ChooseSendAddress]: ChooseSendAddress,
+    [navRoutes.ChooseSendAddressRoute]: ChooseSendAddress,
 
-    [navRoutes.SendCelo]: SendCelo,
+    [navRoutes.SendCeloRoute]: SendCelo,
 }

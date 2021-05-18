@@ -15,6 +15,7 @@
     import routes from './routes'
     import { chains } from './constants/constStrings'
     import { onMount } from 'svelte'
+    import { navRoutes } from './constants/navRoutes'
 
     onMount(async () => {
         await settings.loadSettings()
@@ -64,16 +65,16 @@
                     if (continueLoading) {
                         switch ($activeWallet.wallet.blockchain) {
                             case chains.celo:
-                                push('/celo-index')
+                                push(navRoutes.CeloIndexRoute)
                                 break
                         }
                     }
                 } else {
-                    push('/my-wallets')
+                    push(navRoutes.MyWalletsRoute)
                 }
             }
         } else {
-            openOptionsPage('/', false)
+            openOptionsPage(navRoutes.WelcomeRoute, false)
         }
     })
 

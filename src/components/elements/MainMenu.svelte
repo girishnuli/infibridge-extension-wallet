@@ -6,6 +6,7 @@
     import { clickOutside } from '../../utils/ui'
     import { activeWallet } from '../../stores/index'
     import { isPopupOpen, openOptionsPage } from '../../services/chromeApi'
+    import { navRoutes } from '../../constants/navRoutes'
 
     let isMenuOpen = false
     const isInPopup = isPopupOpen()
@@ -15,7 +16,7 @@
     }
 
     const navigateToMyWallets = () => {
-        push('/my-wallets')
+        push(navRoutes.MyWalletsRoute)
     }
 
     const logout = () => {

@@ -8,6 +8,7 @@
     import { chains } from '../../../constants/constStrings'
     import { settings } from '../../../stores'
     import { onMount } from 'svelte'
+    import { navRoutes } from '../../../constants/navRoutes'
 
     export let params: any = {}
 
@@ -60,7 +61,7 @@
 
                 if (walletId) {
                     await settings.loadSettings()
-                    push('/wallet-ready')
+                    push(navRoutes.WalletReadyRoute)
                 } else {
                     keystoreFileError = true
                 }

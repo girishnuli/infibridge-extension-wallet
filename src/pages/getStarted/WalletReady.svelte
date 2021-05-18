@@ -4,6 +4,7 @@
     import GetStartedLayout from '../../layouts/GetStartedLayout.svelte'
     import { settings, activeWallet } from '../../stores/index'
     import { chains } from '../../constants/constStrings'
+    import { navRoutes } from '../../constants/navRoutes'
 
     const goToWalletDashboard = async () => {
         if ($settings.activeWalletId) {
@@ -11,11 +12,11 @@
             if ($activeWallet.wallet && $activeWallet.wallet.id) {
                 switch ($activeWallet.wallet.blockchain) {
                     case chains.celo:
-                        push('/celo-index')
+                        push(navRoutes.CeloIndexRoute)
                         break
                 }
             } else {
-                push('/my-wallets')
+                push(navRoutes.MyWalletsRoute)
             }
         }
     }
@@ -57,7 +58,7 @@
                     {$_('WalletDashboard')}
                 </button>
                 <button
-                    on:click={() => push('/wallet-action')}
+                    on:click={() => push(navRoutes.WalletActionRoute)}
                     type="button"
                     class="secondary-btn-inline col-start-1">
                     {$_('CreateAnotherWallet')}

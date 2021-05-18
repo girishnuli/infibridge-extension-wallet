@@ -6,13 +6,14 @@ import EVMCreateWalletKeystoreFile from '../pages/wallets/evm/CreateWalletKeysto
 import { navRoutes } from '../constants/navRoutes'
 
 export default {
-    [navRoutes.MyWallets]: MyWallets,
+    [navRoutes.MyWalletsRoute]: MyWallets,
 
-    [navRoutes.EVMCreateWalletNewSeed]: EVMCreateWalletNewSeed,
+    [navRoutes.EVMCreateWalletNewSeedTemplate]: EVMCreateWalletNewSeed,
 
-    [navRoutes.EVMCreateWalletImportSeed]: EVMCreateWalletImportSeed,
+    [navRoutes.EVMCreateWalletImportSeedTemplate]: EVMCreateWalletImportSeed,
 
-    [navRoutes.EVMCreateWalletPrivateKey]: EVMCreateWalletPrivateKey,
+    [navRoutes.EVMCreateWalletPrivateKeyTemplate]: EVMCreateWalletPrivateKey,
 
-    [navRoutes.EVMCreateWalletKeystoreFile]: EVMCreateWalletKeystoreFile,
+    [navRoutes.EVMCreateWalletKeystoreFileTemplate]:
+        EVMCreateWalletKeystoreFile,
 }

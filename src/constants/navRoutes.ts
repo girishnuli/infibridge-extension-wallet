@@ -1,20 +1,28 @@
 export const navRoutes = {
     // Get Started
-    Welcome: '/',
-    WalletAction: '/wallet-action',
-    WalletReady: '/wallet-ready',
+    WelcomeRoute: '/',
+    WalletActionRoute: '/wallet-action',
+    WalletReadyRoute: '/wallet-ready',
 
     // My wallets
-    MyWallets: '/my-wallets',
+    MyWalletsRoute: '/my-wallets',
 
     // Create EVM wallet
-    EVMCreateWalletNewSeed: '/evm-create-wallet-new-seed/:chain',
-    EVMCreateWalletImportSeed: '/evm-create-wallet-import-seed/:chain',
-    EVMCreateWalletPrivateKey: '/evm-create-wallet-private-key/:chain',
-    EVMCreateWalletKeystoreFile: '/evm-create-wallet-keystore-file/:chain',
+    EVMCreateWalletNewSeedTemplate: '/evm-create-wallet-new-seed/:chain',
+    EVMCreateWalletNewSeedRoute: '/evm-create-wallet-new-seed',
+
+    EVMCreateWalletImportSeedTemplate: '/evm-create-wallet-import-seed/:chain',
+    EVMCreateWalletImportSeedRoute: '/evm-create-wallet-import-seed',
+
+    EVMCreateWalletPrivateKeyTemplate: '/evm-create-wallet-private-key/:chain',
+    EVMCreateWalletPrivateKeyRoute: '/evm-create-wallet-private-key',
+
+    EVMCreateWalletKeystoreFileTemplate:
+        '/evm-create-wallet-keystore-file/:chain',
+    EVMCreateWalletKeystoreFileRoute: '/evm-create-wallet-keystore-file',
 
     // Celo
-    CeloIndex: '/celo-index',
-    ChooseSendAddress: '/celo-send-address',
-    SendCelo: '/send-celo',
+    CeloIndexRoute: '/celo-index',
+    ChooseSendAddressRoute: '/celo-send-address',
+    SendCeloRoute: '/send-celo',
 }

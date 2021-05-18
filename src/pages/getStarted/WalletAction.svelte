@@ -3,32 +3,36 @@
     import { _ } from 'svelte-i18n'
     import { chains } from '../../constants/constStrings'
     import GetStartedLayout from '../../layouts/GetStartedLayout.svelte'
+    import { navRoutes } from '../../constants/navRoutes'
 
     let selectedChain = chains.celo
 
     const createWallet = () => {
         if (selectedChain === chains.celo || selectedChain === chains.eth) {
-            push(`/evm-create-wallet-new-seed/${selectedChain}`)
+            push(`${navRoutes.EVMCreateWalletNewSeedRoute}/${selectedChain}`)
         }
     }
 
     const importSeedPhrase = () => {
         if (selectedChain === chains.celo || selectedChain === chains.eth) {
-            push(`/evm-create-wallet-import-seed/${selectedChain}`)
+            push(`${navRoutes.EVMCreateWalletImportSeedRoute}/${selectedChain}`)
         }
     }
 
     const importPrivateKey = () => {
         if (selectedChain === chains.celo || selectedChain === chains.eth) {
-            push(`/evm-create-wallet-private-key/${selectedChain}`)
+            push(`${navRoutes.EVMCreateWalletPrivateKeyRoute}/${selectedChain}`)
         }
     }
 
     const importKeystoreFile = () => {
         if (selectedChain === chains.celo || selectedChain === chains.eth) {
-            push(`/evm-create-wallet-keystore-file/${selectedChain}`)
+            push(
+                `${navRoutes.EVMCreateWalletKeystoreFileRoute}/${selectedChain}`
+            )
         }
     }
+
 </script>
 
 <GetStartedLayout isLogoCentered={true}>

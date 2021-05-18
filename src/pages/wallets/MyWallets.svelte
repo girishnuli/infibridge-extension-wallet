@@ -11,6 +11,7 @@
     import { isPopupOpen, restartExtension } from '../../services/chromeApi'
     import EditWalletModal from '../../components/modals//wallets/EditWalletModal.svelte'
     import { openOptionsPage } from '../../services/chromeApi'
+    import { navRoutes } from '../../constants/navRoutes'
 
     const popupOpen = isPopupOpen()
 
@@ -32,7 +33,7 @@
     })
 
     const newWallet = () => {
-        openOptionsPage('/wallet-action', true)
+        openOptionsPage(navRoutes.WalletActionRoute, true)
     }
 
     const useWallet = (wallet: InfiWallet) => {
@@ -42,7 +43,7 @@
 
         switch (wallet.blockchain) {
             case chains.celo:
-                push('/celo-index')
+                push(navRoutes.CeloIndexRoute)
                 break
         }
     }

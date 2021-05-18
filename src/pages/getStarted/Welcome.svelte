@@ -4,15 +4,14 @@
     import GetStartedLayout from '../../layouts/GetStartedLayout.svelte'
     import { settings } from '../../stores/index'
     import { onMount } from 'svelte'
+    import { navRoutes } from '../../constants/navRoutes'
 
     let acceptedTerms = false
     let showErrorMsg = false
 
-    const defaultNextStep = '/wallet-action'
-
     onMount(() => {
         if ($settings.agreeToTerms) {
-            push(defaultNextStep)
+            push(navRoutes.WalletActionRoute)
         }
     })
 
@@ -22,7 +21,7 @@
             return
         } else {
             await settings.agreeToTerms(acceptedTerms)
-            push(defaultNextStep)
+            push(navRoutes.WalletActionRoute)
         }
     }
 
