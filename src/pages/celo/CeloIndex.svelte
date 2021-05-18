@@ -5,6 +5,7 @@
     import CeloTransactionsTab from '../../components/celo/home/CeloTransactionsTab.svelte'
     import { CeloTab } from '../../models/enums/celotab'
     import MainLayout from '../../layouts/MainLayout.svelte'
+    import CeloActionsTab from '../../components/celo/home/CeloActionsTab.svelte'
 
     let currentTab = CeloTab.Funds
 
@@ -12,6 +13,7 @@
         if (tab === currentTab) return
         currentTab = tab
     }
+
 </script>
 
 <MainLayout>
@@ -25,8 +27,10 @@
             <CeloFundsTab />
         {:else if currentTab === CeloTab.Transactions}
             <CeloTransactionsTab />
-        {:else}
+        {:else if currentTab === CeloTab.Tokens}
             <CeloTokensTab />
+        {:else}
+            <CeloActionsTab />
         {/if}
     </div>
 </MainLayout>

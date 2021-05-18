@@ -2,6 +2,7 @@
     import { getTrimmedAddress } from '../../../utils/wallet/accountUtil'
 
     let transactionsCount = 2
+
 </script>
 
 <div class="w-full h-full flex flex-col">
@@ -38,7 +39,7 @@
                     </div>
                     <div>
                         <p class="transaction-balance">
-                            <strong>- 8</strong> ETH
+                            <strong>- 8</strong> CELO
                         </p>
                     </div>
                 </div>
@@ -71,7 +72,7 @@
                     </div>
                     <div>
                         <p class="transaction-balance">
-                            <strong>+ 3000</strong> ETH
+                            <strong>+ 3000</strong> CELO
                         </p>
                     </div>
                 </div>
