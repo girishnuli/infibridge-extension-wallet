@@ -45,7 +45,7 @@
   "options_page": "index.html",
   
   "permissions": [
-    "storage", "tabs", "unlimitedStorage", "background"
+    "storage", "unlimitedStorage", "background", "activeTab", "clipboardWrite", "notifications"
   ],
    
   "web_accessible_resources": [
