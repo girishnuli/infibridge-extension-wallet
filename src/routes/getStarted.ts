@@ -1,11 +1,12 @@
 import Welcome from '../pages/getStarted/Welcome.svelte'
-import Done from '../pages/getStarted/Done.svelte'
+import WalletReady from '../pages/getStarted/WalletReady.svelte'
 import WalletAction from '../pages/getStarted/WalletAction.svelte'
+import { navRoutes } from '../constants/navRoutes'
 
 export default {
-    '/': Welcome,
+    [navRoutes.Welcome]: Welcome,
 
-    '/wallet-action': WalletAction,
+    [navRoutes.WalletAction]: WalletAction,
 
-    '/wallet-ready': Done,
+    [navRoutes.WalletReady]: WalletReady,
 }

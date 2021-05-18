@@ -3,15 +3,16 @@ import EVMCreateWalletNewSeed from '../pages/wallets/evm/CreateWalletNewSeed.sve
 import EVMCreateWalletImportSeed from '../pages/wallets/evm/CreateWalletImportSeed.svelte'
 import EVMCreateWalletPrivateKey from '../pages/wallets/evm/CreateWalletPrivateKey.svelte'
 import EVMCreateWalletKeystoreFile from '../pages/wallets/evm/CreateWalletKeystoreFile.svelte'
+import { navRoutes } from '../constants/navRoutes'
 
 export default {
-    '/my-wallets': MyWallets,
+    [navRoutes.MyWallets]: MyWallets,
 
-    '/evm-create-wallet-new-seed/:chain': EVMCreateWalletNewSeed,
+    [navRoutes.EVMCreateWalletNewSeed]: EVMCreateWalletNewSeed,
 
-    '/evm-create-wallet-import-seed/:chain': EVMCreateWalletImportSeed,
+    [navRoutes.EVMCreateWalletImportSeed]: EVMCreateWalletImportSeed,
 
-    '/evm-create-wallet-private-key/:chain': EVMCreateWalletPrivateKey,
+    [navRoutes.EVMCreateWalletPrivateKey]: EVMCreateWalletPrivateKey,
 
-    '/evm-create-wallet-keystore-file/:chain': EVMCreateWalletKeystoreFile,
+    [navRoutes.EVMCreateWalletKeystoreFile]: EVMCreateWalletKeystoreFile,
 }

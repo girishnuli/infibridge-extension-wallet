@@ -1,11 +1,12 @@
 import ChooseSendAddress from '../pages/celo/transact/ChooseSendAddress.svelte'
 import SendCelo from '../pages/celo/transact/SendCelo.svelte'
 import CeloIndex from '../pages/celo/CeloIndex.svelte'
+import { navRoutes } from '../constants/navRoutes'
 
 export default {
-    '/celo-index': CeloIndex,
+    [navRoutes.CeloIndex]: CeloIndex,
 
-    '/celo-send-address': ChooseSendAddress,
+    [navRoutes.ChooseSendAddress]: ChooseSendAddress,
 
-    '/send-celo': SendCelo,
+    [navRoutes.SendCelo]: SendCelo,
 }
