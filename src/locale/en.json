@@ -115,5 +115,7 @@
   "EarnSub": "Earn rewards by staking your funds with validators.",
   "Vote": "Vote",
   "VoteSub": "Participate in Celo by voting for governance proposals.",
-  "SearchProjects": "Search Projects"
+  "Search": "Search",
+  "SearchProjects": "Search Projects",
+  "SearchProposals": "Search Proposals"
 }
