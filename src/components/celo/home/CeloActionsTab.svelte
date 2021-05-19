@@ -6,7 +6,7 @@
 </script>
 
 <div
-    class="bg-gray-200 overflow-hidden divide-y divide-gray-200 divide-y-0 grid grid-cols-1 gap-px">
+    class="bg-gray-200 overflow-hidden divide-y divide-gray-200 divide-y-0 grid grid-cols-1">
     <div class="relative group hover:bg-gray-100 bg-white p-6">
         <div>
             <span
@@ -26,7 +26,7 @@
                 </svg>
             </span>
         </div>
-        <div class="mt-8">
+        <div class="mt-2">
             <h3 class="text-lg font-medium">
                 <a
                     on:click|preventDefault={() =>
@@ -78,7 +78,7 @@
                 </svg>
             </span>
         </div>
-        <div class="mt-8">
+        <div class="mt-2">
             <h3 class="text-lg font-medium">
                 <a
                     on:click|preventDefault={() =>
@@ -130,7 +130,7 @@
                 </svg>
             </span>
         </div>
-        <div class="mt-8">
+        <div class="mt-2">
             <h3 class="text-lg font-medium">
                 <a
                     on:click|preventDefault={() =>
