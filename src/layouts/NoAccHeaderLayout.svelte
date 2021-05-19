@@ -1,5 +1,4 @@
 <script lang="ts">
-    import { fade } from 'svelte/transition'
     import { isPopupOpen } from '../services/chromeApi'
     import Header from '../components/elements/Header.svelte'
     import { uiState } from '../stores'
@@ -17,7 +16,6 @@
     <Header />
 
     <div
-        transition:fade={{ duration: 200 }}
         class="flex flex-col w-full {popupOpen ? '' : 'pb-4'}"
         style={popupOpen ? 'height: 544px;' : 'height: 800px;'}>
         <slot />
