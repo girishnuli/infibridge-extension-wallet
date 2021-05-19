@@ -28,4 +28,5 @@ export const navRoutes = {
     CeloDiscoverIndexRoute: '/celo-discover-index',
     CeloEarnIndexRoute: '/celo-earn-index',
     CeloVoteIndexRoute: '/celo-vote-index',
+    CeloProjectDetailsRoute: '/celo-project-details',
 }

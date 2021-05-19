@@ -1,5 +1,7 @@
 <script lang="ts">
     import { _ } from 'svelte-i18n'
+    import { push } from 'svelte-spa-router'
+    import { navRoutes } from '../../../../constants/navRoutes'
     import ActionsLayout from '../../../../layouts/ActionsLayout.svelte'
 
 </script>
@@ -59,6 +61,8 @@
                         </div>
                         <div class="-ml-px w-0 flex-1 flex">
                             <a
+                                on:click|preventDefault={() =>
+                                    push(navRoutes.CeloProjectDetailsRoute)}
                                 href="/"
                                 class="relative w-0 flex-1 inline-flex items-center justify-center py-4 text-sm text-gray-700 font-medium border border-transparent rounded-br-lg hover:text-gray-500">
                                 <svg
