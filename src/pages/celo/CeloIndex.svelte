@@ -7,7 +7,8 @@
     import MainLayout from '../../layouts/MainLayout.svelte'
     import CeloActionsTab from '../../components/celo/home/CeloActionsTab.svelte'
 
-    let currentTab = CeloTab.Funds
+    // TODO: Change to funds tab
+    let currentTab = CeloTab.Actions
 
     function switchTab(tab: CeloTab) {
         if (tab === currentTab) return

@@ -108,5 +108,12 @@
   "WatchAddressTip": "Watch only account",
   "RecipientAddress": "Recipient Address",
   "OR": "OR",
-  "OwnAccounts": "Own Accounts"
+  "OwnAccounts": "Own Accounts",
+  "Discover": "Discover",
+  "DiscoverSub": "Explore top projects on Celo.",
+  "Earn": "Earn",
+  "EarnSub": "Earn rewards by staking your funds with validators.",
+  "Vote": "Vote",
+  "VoteSub": "Participate in Celo by voting for governance proposals.",
+  "SearchProjects": "Search Projects"
 }

@@ -1,3 +1,10 @@
+<script lang="ts">
+    import { _ } from 'svelte-i18n'
+    import { push } from 'svelte-spa-router'
+    import { navRoutes } from '../../../constants/navRoutes'
+
+</script>
+
 <div
     class="bg-gray-200 overflow-hidden divide-y divide-gray-200 divide-y-0 grid grid-cols-1 gap-px">
     <div class="relative group hover:bg-gray-100 bg-white p-6">
@@ -21,13 +28,17 @@
         </div>
         <div class="mt-8">
             <h3 class="text-lg font-medium">
-                <a href="/" class="focus:outline-none text-gray-800">
+                <a
+                    on:click|preventDefault={() =>
+                        push(navRoutes.CeloDiscoverIndexRoute)}
+                    href="/"
+                    class="focus:outline-none text-gray-800">
                     <span class="absolute inset-0" aria-hidden="true" />
-                    Discover
+                    {$_('Discover')}
                 </a>
             </h3>
             <p class="mt-2 text-sm text-gray-500">
-                Explore top projects on Celo.
+                {$_('DiscoverSub')}
             </p>
         </div>
         <span
@@ -69,14 +80,17 @@
         </div>
         <div class="mt-8">
             <h3 class="text-lg font-medium">
-                <a href="/" class="focus:outline-none text-gray-800">
-                    <!-- Extend touch target to entire panel -->
+                <a
+                    on:click|preventDefault={() =>
+                        push(navRoutes.CeloEarnIndexRoute)}
+                    href="/"
+                    class="focus:outline-none text-gray-800">
                     <span class="absolute inset-0" aria-hidden="true" />
-                    Earn
+                    {$_('Earn')}
                 </a>
             </h3>
             <p class="mt-2 text-sm text-gray-500">
-                Earn rewards by staking your funds for validators.
+                {$_('EarnSub')}
             </p>
         </div>
         <span
@@ -118,15 +132,17 @@
         </div>
         <div class="mt-8">
             <h3 class="text-lg font-medium">
-                <a href="/" class="focus:outline-none text-gray-800">
-                    <!-- Extend touch target to entire panel -->
+                <a
+                    on:click|preventDefault={() =>
+                        push(navRoutes.CeloVoteIndexRoute)}
+                    href="/"
+                    class="focus:outline-none text-gray-800">
                     <span class="absolute inset-0" aria-hidden="true" />
-                    Vote
+                    {$_('Vote')}
                 </a>
             </h3>
             <p class="mt-2 text-sm text-gray-500">
-                Participate in Celo governance by voting for your favorite
-                proposals.
+                {$_('VoteSub')}
             </p>
         </div>
         <span
