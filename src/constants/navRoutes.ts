@@ -1,3 +1,5 @@
+import celoRoutes from './celoRoutes'
+
 export const navRoutes = {
     // Get Started
     WelcomeRoute: '/',
@@ -22,12 +24,5 @@ export const navRoutes = {
     EVMCreateWalletKeystoreFileRoute: '/evm-create-wallet-keystore-file',
 
     // Celo
-    CeloIndexRoute: '/celo-index',
-    CeloSendAddressRoute: '/celo-send-address',
-    CeloReviewSendTemplate: '/celo-review-send/:address',
-    CeloReviewSendRoute: '/celo-review-send',
-    CeloDiscoverIndexRoute: '/celo-discover-index',
-    CeloEarnIndexRoute: '/celo-earn-index',
-    CeloVoteIndexRoute: '/celo-vote-index',
-    CeloProjectDetailsRoute: '/celo-project-details',
+    ...celoRoutes,
 }
