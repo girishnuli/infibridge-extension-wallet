@@ -107,12 +107,14 @@
                 >{$_('OwnAccounts').toLocaleUpperCase()}</label>
             <div class="mt-2">
                 {#each Object.entries(groupedAccounts) as [group, accounts]}
-                    <div
-                        class="border-t border-b border-blue-200 bg-blue-50 px-6 py-1 text-sm font-medium text-blue-500">
-                        <h3>{group}</h3>
-                    </div>
+                    {#if accounts.filter(x => x.group === group && x.address !== $activeWallet.activeAccount.address).length > 0}
+                        <div
+                            class="border-t border-b border-blue-200 bg-blue-50 px-6 py-1 text-sm font-medium text-blue-500">
+                            <h3>{group}</h3>
+                        </div>
+                    {/if}
 
-                    <div class="">
+                    <div>
                         {#each accounts as account}
                             {#if account.address !== $activeWallet.activeAccount.address}
                                 <a
@@ -207,78 +209,6 @@
                         {/each}
                     </div>
                 {/each}
-
-                <!-- <ul class="divide-y divide-gray-200 mx-4">
-                    <li class="p-4 flex hover:bg-gray-200 cursor-pointer">
-                        <span class="account-seq">1</span>
-                        <div class="ml-3">
-                            <p class="text-base font-medium text-gray-800">
-                                Account 1
-                                <span class="ml-1 italic text-blue-400"
-                                    >800000000 celo</span>
-                            </p>
-                            <p class="text-xs text-gray-500">
-                                0xe52B02c0c5CbDc5b59662d9c916c040F8E568857
-                            </p>
-                        </div>
-                    </li>
-
-                    <li class="py-4 px-4 flex hover:bg-gray-200 cursor-pointer">
-                        <span class="account-seq">2</span>
-                        <div class="ml-3">
-                            <p class="text-base font-medium text-gray-900">
-                                Account 2
-                                <span class="ml-1 italic text-blue-400"
-                                    >800000000 celo</span>
-                            </p>
-                            <p class="text-xs text-gray-500">
-                                0xe52B02c0c5CbDc5b59662d9c916c040F8E568857
-                            </p>
-                        </div>
-                    </li>
-
-                    <li class="py-4 px-4 flex hover:bg-gray-200 cursor-pointer">
-                        <span class="account-seq">3</span>
-                        <div class="ml-3">
-                            <p class="text-base font-medium text-gray-900">
-                                Account 3
-                                <span class="ml-1 italic text-blue-400"
-                                    >800000000 celo</span>
-                            </p>
-                            <p class="text-xs text-gray-500">
-                                0xe52B02c0c5CbDc5b59662d9c916c040F8E568857
-                            </p>
-                        </div>
-                    </li>
-
-                    <li class="py-4 px-4 flex hover:bg-gray-200 cursor-pointer">
-                        <span class="account-seq">4</span>
-                        <div class="ml-3">
-                            <p class="text-base font-medium text-gray-900">
-                                Account 4
-                                <span class="ml-1 italic text-blue-400"
-                                    >800000000 celo</span>
-                            </p>
-                            <p class="text-xs text-gray-500">
-                                0xe52B02c0c5CbDc5b59662d9c916c040F8E568857
-                            </p>
-                        </div>
-                    </li>
-
-                    <li class="py-4 px-4 flex hover:bg-gray-200 cursor-pointer">
-                        <span class="account-seq">5</span>
-                        <div class="ml-3">
-                            <p class="text-base font-medium text-gray-900">
-                                Account 5
-                                <span class="ml-1 italic text-blue-400"
-                                    >800000000 celo</span>
-                            </p>
-                            <p class="text-xs text-gray-500">
-                                0xe52B02c0c5CbDc5b59662d9c916c040F8E568857
-                            </p>
-                        </div>
-                    </li>
-                </ul> -->
             </div>
         </div>
     </div>

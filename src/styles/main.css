@@ -3,8 +3,6 @@
 @tailwind components;
 /* purgecss end ignore */
 
-@tailwind utilities;
-
 /************** BASE STYLES START *****************/
 
 a {
@@ -228,3 +226,7 @@ a {
 .modal-title {
     @apply text-base leading-6 font-medium text-gray-800;
 }
+
+/* Applying this in the end so that we can override the @apply classes with
+local classes on HTML elements */
+@tailwind utilities;
