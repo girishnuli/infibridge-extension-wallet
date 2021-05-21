@@ -29,8 +29,7 @@
         <div class="mt-2">
             <h3 class="text-lg font-medium">
                 <a
-                    on:click|preventDefault={() =>
-                        push(navRoutes.CeloDiscoverIndexRoute)}
+                    on:click|preventDefault
                     href="/"
                     class="focus:outline-none text-gray-800">
                     <span class="absolute inset-0" aria-hidden="true" />
@@ -81,8 +80,7 @@
         <div class="mt-2">
             <h3 class="text-lg font-medium">
                 <a
-                    on:click|preventDefault={() =>
-                        push(navRoutes.CeloVoteIndexRoute)}
+                    on:click|preventDefault
                     href="/"
                     class="focus:outline-none text-gray-800">
                     <span class="absolute inset-0" aria-hidden="true" />
@@ -133,8 +131,7 @@
         <div class="mt-2">
             <h3 class="text-lg font-medium">
                 <a
-                    on:click|preventDefault={() =>
-                        push(navRoutes.CeloEarnIndexRoute)}
+                    on:click|preventDefault
                     href="/"
                     class="focus:outline-none text-gray-800">
                     <span class="absolute inset-0" aria-hidden="true" />
