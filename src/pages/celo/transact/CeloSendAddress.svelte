@@ -1,6 +1,5 @@
 <script lang="ts">
     import { push } from 'svelte-spa-router'
-    import { fade } from 'svelte/transition'
     import { _ } from 'svelte-i18n'
     import BackButton from '../../../components/elements/BackButton.svelte'
     import NoAccHeaderLayout from '../../../layouts/NoAccHeaderLayout.svelte'
@@ -9,8 +8,37 @@
     import { getTrimmedAddress } from '../../../utils/wallet/accountUtil'
     import { AccountType } from '../../../models/enums/accountType'
     import tooltip from '../../../utils/tooltip'
+    import type Account from '../../../models/account'
+    import { navRoutes } from '../../../constants/navRoutes'
 
     $: groupedAccounts = groupBy($activeWallet.wallet.accounts, x => x.group)
+
+    let recipientAddress = ''
+    let recipientAddressError = false
+
+    const validateRecipientAddress = () => {
+        // TODO: Validate EVM address here and in ImportEVMAccount modal
+        recipientAddressError =
+            !recipientAddress || recipientAddress.length < 42
+
+        return !recipientAddressError
+    }
+
+    const sendToAddress = () => {
+        if (validateRecipientAddress()) {
+            reviewSend(recipientAddress)
+        } else {
+            recipientAddressError = true
+        }
+    }
+
+    const accountSelected = (account: Account) => {
+        reviewSend(account.address)
+    }
+
+    const reviewSend = (address: string) => {
+        push(`${navRoutes.CeloReviewSendRoute}/${address}`)
+    }
 
 </script>
 
@@ -22,7 +50,7 @@
 
         <!-- Address input -->
         <div class="px-4 mt-4">
-            <form>
+            <form on:submit|preventDefault={() => sendToAddress()}>
                 <div class="mt-2 flex rounded-sm shadow-sm">
                     <div
                         class="relative flex items-stretch flex-grow focus-within:z-10">
@@ -30,6 +58,8 @@
                             type="text"
                             name="address"
                             id="address"
+                            bind:value={recipientAddress}
+                            on:input={() => validateRecipientAddress()}
                             class="focus:ring-blue-500 focus:border-blue-500 block w-full rounded-none rounded-l-sm pl-2 text-sm border-gray-300"
                             placeholder={$_('RecipientAddress')} />
                     </div>
@@ -52,6 +82,12 @@
                         </svg>
                     </button>
                 </div>
+                <p
+                    class="{recipientAddressError
+                        ? ''
+                        : 'hidden'} mt-2 text-sm text-red-600">
+                    {$_('AddressErrorMsg')}
+                </p>
             </form>
         </div>
 
@@ -80,7 +116,8 @@
                         {#each accounts as account}
                             {#if account.address !== $activeWallet.activeAccount.address}
                                 <a
-                                    on:click|preventDefault
+                                    on:click|preventDefault={() =>
+                                        accountSelected(account)}
                                     href="/"
                                     class="account-item hover:bg-gray-100">
                                     <span class="account-seq">

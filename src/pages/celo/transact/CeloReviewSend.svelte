@@ -1,15 +1,25 @@
 <script lang="ts">
-    import { fade } from 'svelte/transition'
+    import { onMount } from 'svelte'
     import BackButton from '../../../components/elements/BackButton.svelte'
+    import NoAccHeaderLayout from '../../../layouts/NoAccHeaderLayout.svelte'
+
+    export let params: any = {}
+    let address = ''
+
+    onMount(() => {
+        address = params.address
+    })
 
 </script>
 
-<div transition:fade={{ duration: 150 }} class="w-full">
-    <BackButton />
+<NoAccHeaderLayout>
+    <div class="py-2 pl-2 w-full bg-gray-200">
+        <BackButton />
+    </div>
 
     <div class="w-full h-full flex flex-col">
         <div class="flex-grow grid grid-cols-1 place-items-center">
-            <p class="empty-content">Wow, such empty!</p>
+            <p class="empty-content">{address}</p>
         </div>
     </div>
-</div>
+</NoAccHeaderLayout>

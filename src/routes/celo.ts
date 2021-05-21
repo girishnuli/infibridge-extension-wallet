@@ -9,7 +9,7 @@ import { navRoutes } from '../constants/navRoutes'
 
 export default {
     [navRoutes.CeloIndexRoute]: CeloIndex,
-    [navRoutes.CeloReviewSendRoute]: CeloReviewSend,
+    [navRoutes.CeloReviewSendTemplate]: CeloReviewSend,
     [navRoutes.CeloSendAddressRoute]: CeloSendAddress,
     [navRoutes.CeloDiscoverIndexRoute]: CeloDiscoverIndex,
     [navRoutes.CeloEarnIndexRoute]: CeloEarnIndex,

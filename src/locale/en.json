@@ -102,7 +102,7 @@
   "PvtKeyAccountTip": "Account from private key",
   "KeystoreAccountTip": "Account from keystore file",
   "Address": "Address",
-  "WatchAddressErrorMsg": "Invalid address",
+  "AddressErrorMsg": "Invalid address",
   "PasteAddressHere": "Paste the address that you wish to watch (with the leading 0x).",
   "ImportAddress": "Import Address",
   "WatchAddressTip": "Watch only account",

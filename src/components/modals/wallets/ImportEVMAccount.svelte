@@ -393,7 +393,7 @@
                                 class="{watchAddressError
                                     ? ''
                                     : 'hidden'} mt-2 text-sm text-red-600">
-                                {$_('WatchAddressErrorMsg')}
+                                {$_('AddressErrorMsg')}
                             </p>
 
                             <div class="mt-5 w-full">
