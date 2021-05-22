@@ -75,24 +75,24 @@
             <div
                 class="w-full space-y-8 divide-y divide-gray-200 overflow-y-auto px-2">
                 <div class="w-full space-y-4">
-                    <div class="grid grid-cols-3 gap-4 items-start">
+                    <div class="grid grid-cols-4 gap-4 items-start">
                         <span
                             class="block text-sm font-medium text-gray-700 pt-2">
                             Token
                         </span>
-                        <div class="col-span-2">
+                        <div class="col-span-3">
                             <TokensDropdown
                                 on:tokenChanged={e =>
                                     onTokenChanged(e.detail)} />
                         </div>
                     </div>
 
-                    <div class="grid grid-cols-3 gap-4 items-start">
+                    <div class="grid grid-cols-4 gap-4 items-start">
                         <span
                             class="block text-sm font-medium text-gray-700 pt-2">
                             Amount
                         </span>
-                        <div class="col-span-2">
+                        <div class="col-span-3">
                             <SendAmountInput
                                 selectedCurrency={selectedToken}
                                 on:currencyChanged={e =>
@@ -100,29 +100,29 @@
                         </div>
                     </div>
 
-                    <div class="grid grid-cols-3 gap-4 items-center">
+                    <div class="grid grid-cols-4 gap-4 items-center">
                         <span class="block text-sm font-medium text-gray-700">
                             Gas
                         </span>
-                        <div class="col-span-2">
+                        <div class="col-span-3">
                             <GasPriceInput />
                         </div>
                     </div>
 
-                    <div class="grid grid-cols-3 gap-4 items-center">
+                    <div class="grid grid-cols-4 gap-4 items-center">
                         <span class="block text-sm font-medium text-gray-700">
-                            Tx Fees
+                            Tx Fee
                         </span>
-                        <div class="col-span-2 text-sm text-gray-800">
+                        <div class="col-span-3 text-sm text-gray-800">
                             <span class="font-bold">0.000031 Celo</span>
                         </div>
                     </div>
 
-                    <div class="grid grid-cols-3 gap-4 items-center">
+                    <div class="grid grid-cols-4 gap-4 items-center">
                         <span class="block text-sm font-medium text-gray-700">
                             Total
                         </span>
-                        <div class="col-span-2 text-sm text-gray-800">
+                        <div class="col-span-3 text-sm text-gray-800">
                             <span class="font-bold">0.000031 Celo</span>
                         </div>
                     </div>
