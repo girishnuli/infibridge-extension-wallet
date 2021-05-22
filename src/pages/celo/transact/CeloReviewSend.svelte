@@ -21,11 +21,6 @@
 
 </script>
 
-<!-- li -->
-<!-- Select option, manage highlight styles based on mouseenter/mouseleave and keyboard navigation.
-    Highlighted: "text-white bg-indigo-600", Not Highlighted: "text-gray-900"
--->
-
 <NoAccHeaderLayout>
     <div class="py-2 pl-4 w-full bg-gray-200 flex justify-between items-center">
         <BackButton />

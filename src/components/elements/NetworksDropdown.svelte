@@ -41,7 +41,7 @@
 </script>
 
 <div
-    class="relative w-full ml-1"
+    class="z-10 relative w-full ml-1"
     use:clickOutside={{
         enabled: isDropdownOpen,
         cb: () => (isDropdownOpen = false),

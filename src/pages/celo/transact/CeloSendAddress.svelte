@@ -52,8 +52,7 @@
         <div class="px-4 mt-4">
             <form on:submit|preventDefault={() => sendToAddress()}>
                 <div class="mt-2 flex rounded-sm shadow-sm">
-                    <div
-                        class="relative flex items-stretch flex-grow focus-within:z-10">
+                    <div class="relative flex items-stretch flex-grow">
                         <input
                             type="text"
                             name="address"
