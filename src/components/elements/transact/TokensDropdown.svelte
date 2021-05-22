@@ -13,13 +13,13 @@
         {
             id: 0,
             name: 'Celo',
-            balance: 3000,
+            balance: 0,
             isSelected: true,
         },
         {
             id: 1,
             name: 'cUSD',
-            balance: 20000,
+            balance: 0,
             isSelected: false,
         },
         {
@@ -60,7 +60,7 @@
             <span>
                 {selectedToken.name}
             </span>
-            <span class="ml-2">
+            <span class="ml-1 text-gray-500">
                 {`(Balance: ${selectedToken.balance})`}
             </span>
         </p>

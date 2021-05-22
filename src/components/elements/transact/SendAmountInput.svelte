@@ -17,7 +17,7 @@
     const celoPriceInUSD = 5.0
 
     let total: BN = new BN(0.0)
-    let totalDisplay = `100 USD`
+    let totalDisplay = `0 USD`
     let conversionRate = `1 ${selectedCurrency} = ${celoPriceInUSD} USD`
 
     const currencyChanged = (e: any) => {
@@ -44,7 +44,6 @@
 
             amountError = true
         } catch (error) {
-            console.log(error)
             amountError = true
         }
     }
@@ -72,7 +71,7 @@
             type="text"
             bind:value={amount}
             on:input={() => amountChanged()}
-            class="block w-full text-sm border-gray-300 rounded-md"
+            class="block w-full text-sm font-bold border-gray-300 rounded-md"
             placeholder="0.00" />
         <div class="absolute right-0 flex items-center">
             <select
@@ -99,6 +98,6 @@
     <div
         class="px-2 pt-2 flex items-center justify-between text-xs text-gray-600 font-medium">
         <p>&asymp; {totalDisplay}</p>
-        <p>{conversionRate}</p>
+        <!-- <p>{conversionRate}</p> -->
     </div>
 </div>

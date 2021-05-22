@@ -1,4 +1,5 @@
 <script lang="ts">
+    import { push } from 'svelte-spa-router'
     import { _ } from 'svelte-i18n'
     import { onMount } from 'svelte'
     import BackButton from '../../../components/elements/BackButton.svelte'
@@ -7,6 +8,8 @@
     import type Account from '../../../models/account'
     import TokensDropdown from '../../../components/elements/transact/TokensDropdown.svelte'
     import SendAmountInput from '../../../components/elements/transact/SendAmountInput.svelte'
+    import GasPriceInput from '../../../components/elements/transact/GasPriceInput.svelte'
+    import { navRoutes } from '../../../constants/navRoutes'
 
     export let params: any = {}
     let address = ''
@@ -68,28 +71,28 @@
             </div>
         </div>
 
-        <div class="p-4">
-            <div class="space-y-8 divide-y divide-gray-200 overflow-y-auto">
-                <div class="space-y-6 sm:space-y-5">
-                    <div class="sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start">
+        <div class="w-full px-2">
+            <div
+                class="w-full space-y-8 divide-y divide-gray-200 overflow-y-auto px-2">
+                <div class="w-full space-y-4">
+                    <div class="grid grid-cols-3 gap-4 items-start">
                         <span
-                            class="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-1">
+                            class="block text-sm font-medium text-gray-700 pt-2">
                             Token
                         </span>
-                        <div class="mt-1 sm:mt-0 sm:col-span-2">
+                        <div class="col-span-2">
                             <TokensDropdown
                                 on:tokenChanged={e =>
                                     onTokenChanged(e.detail)} />
                         </div>
                     </div>
 
-                    <div
-                        class="sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5">
+                    <div class="grid grid-cols-3 gap-4 items-start">
                         <span
-                            class="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-1">
+                            class="block text-sm font-medium text-gray-700 pt-2">
                             Amount
                         </span>
-                        <div class="mt-1 sm:mt-0 sm:col-span-2">
+                        <div class="col-span-2">
                             <SendAmountInput
                                 selectedCurrency={selectedToken}
                                 on:currencyChanged={e =>
@@ -97,29 +100,46 @@
                         </div>
                     </div>
 
-                    <div
-                        class="sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5">
-                        <span
-                            class="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-1">
-                            Transaction Fees
+                    <div class="grid grid-cols-3 gap-4 items-center">
+                        <span class="block text-sm font-medium text-gray-700">
+                            Gas
                         </span>
-                        <div
-                            class="mt-1 sm:mt-0 sm:col-span-2 text-sm text-gray-800">
-                            <span>0.18 Celo</span>
+                        <div class="col-span-2">
+                            <GasPriceInput />
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-3 gap-4 items-center">
+                        <span class="block text-sm font-medium text-gray-700">
+                            Tx Fees
+                        </span>
+                        <div class="col-span-2 text-sm text-gray-800">
+                            <span class="font-bold">0.000031 Celo</span>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-3 gap-4 items-center">
+                        <span class="block text-sm font-medium text-gray-700">
+                            Total
+                        </span>
+                        <div class="col-span-2 text-sm text-gray-800">
+                            <span class="font-bold">0.000031 Celo</span>
                         </div>
                     </div>
                 </div>
 
-                <div class="pt-5">
+                <div class="py-6">
                     <div class="flex justify-center">
                         <button
+                            on:click={() => push(navRoutes.CeloIndexRoute)}
                             type="button"
-                            class="bg-white py-2 px-4 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                            class="secondary-btn mr-2">
                             Cancel
                         </button>
                         <button
-                            type="submit"
-                            class="ml-3 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                            on:click={() => push(navRoutes.CeloIndexRoute)}
+                            type="button"
+                            class="primary-btn ml-2">
                             Send
                         </button>
                     </div>
