@@ -78,11 +78,18 @@
             <select
                 bind:value={selectedCurrency}
                 on:blur={e => currencyChanged(e)}
-                class="h-full py-2 pl-2 pr-7 border-transparent bg-transparent text-gray-500 sm:text-sm rounded-md">
+                class="h-full py-2 pl-2 pr-7 border-transparent bg-transparent text-gray-500 text-sm rounded-md">
                 {#each currencies as currency}
                     <option>{currency}</option>
                 {/each}
             </select>
+        </div>
+        <div class="absolute right-20 flex items-center">
+            <button
+                type="button"
+                class="inline-flex items-center px-2.5 py-1 text-xs font-medium rounded text-blue-500 bg-blue-100 hover:bg-blue-800 hover:text-white focus:outline-none">
+                MAX
+            </button>
         </div>
     </div>
     {#if amountError}
@@ -90,7 +97,7 @@
     {/if}
 
     <div
-        class="p-2 flex items-center justify-between text-xs text-gray-600 font-medium">
+        class="px-2 pt-2 flex items-center justify-between text-xs text-gray-600 font-medium">
         <p>&asymp; {totalDisplay}</p>
         <p>{conversionRate}</p>
     </div>

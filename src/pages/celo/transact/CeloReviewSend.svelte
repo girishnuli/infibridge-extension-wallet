@@ -96,6 +96,18 @@
                                     onCurrencyChanged(e.detail)} />
                         </div>
                     </div>
+
+                    <div
+                        class="sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5">
+                        <span
+                            class="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-1">
+                            Transaction Fees
+                        </span>
+                        <div
+                            class="mt-1 sm:mt-0 sm:col-span-2 text-sm text-gray-800">
+                            <span>0.18 Celo</span>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="pt-5">
