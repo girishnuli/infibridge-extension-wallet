@@ -5,11 +5,14 @@
     import NoAccHeaderLayout from '../../../layouts/NoAccHeaderLayout.svelte'
     import { activeWallet } from '../../../stores/index'
     import type Account from '../../../models/account'
-    import TokensDropdown from '../../../components/elements/TokensDropdown.svelte'
+    import TokensDropdown from '../../../components/elements/transact/TokensDropdown.svelte'
+    import SendAmountInput from '../../../components/elements/transact/SendAmountInput.svelte'
 
     export let params: any = {}
     let address = ''
     let savedAccount: Account | undefined
+    let selectedToken = ''
+    let selectedCurrency = ''
 
     onMount(() => {
         address = params.address
@@ -18,6 +21,13 @@
         )
     })
 
+    const onTokenChanged = (token: string) => {
+        selectedToken = token
+    }
+
+    const onCurrencyChanged = (currency: string) => {
+        selectedCurrency = currency
+    }
 </script>
 
 <NoAccHeaderLayout>
@@ -36,7 +46,7 @@
                     <span class="text-gray-600 block text-sm">
                         From {$activeWallet.activeAccount.nickName}
                     </span>
-                    <span class="text-blue-500 block text-sm">
+                    <span class="text-blue-500 block text-sm break-all">
                         {$activeWallet.activeAccount.address}
                     </span>
                 </div>
@@ -51,7 +61,7 @@
                             {savedAccount.nickName}
                         {/if}
                     </span>
-                    <span class="text-blue-500 block text-sm">
+                    <span class="text-blue-500 block text-sm break-all">
                         {address}
                     </span>
                 </div>
@@ -67,26 +77,23 @@
                             Token
                         </span>
                         <div class="mt-1 sm:mt-0 sm:col-span-2">
-                            <TokensDropdown />
+                            <TokensDropdown
+                                on:tokenChanged={e =>
+                                    onTokenChanged(e.detail)} />
                         </div>
                     </div>
 
                     <div
                         class="sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5">
-                        <label
-                            for="about"
-                            class="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2">
-                            About
-                        </label>
+                        <span
+                            class="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-1">
+                            Amount
+                        </span>
                         <div class="mt-1 sm:mt-0 sm:col-span-2">
-                            <textarea
-                                id="about"
-                                name="about"
-                                rows="3"
-                                class="max-w-lg shadow-sm block w-full focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm border-gray-300 rounded-md" />
-                            <p class="mt-2 text-sm text-gray-500">
-                                Write a few sentences about yourself.
-                            </p>
+                            <SendAmountInput
+                                selectedCurrency={selectedToken}
+                                on:currencyChanged={e =>
+                                    onCurrencyChanged(e.detail)} />
                         </div>
                     </div>
                 </div>

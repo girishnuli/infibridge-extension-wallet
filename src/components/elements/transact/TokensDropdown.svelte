@@ -1,7 +1,11 @@
 <script lang="ts">
     import { fade } from 'svelte/transition'
     import { cubicIn, cubicOut } from 'svelte/easing'
-    import { clickOutside } from '../../utils/ui'
+    import { clickOutside } from '../../../utils/ui'
+    import { createEventDispatcher, onMount } from 'svelte'
+    import { eventTypes } from '../../../constants/eventTypes'
+
+    const dispatch = createEventDispatcher()
 
     let isDropdownOpen = false
 
@@ -28,15 +32,19 @@
 
     let selectedToken = tokens[0]
 
-    function tokenChanged(tokenId: number) {
+    onMount(() => {
+        dispatch(eventTypes.tokenChanged, selectedToken.name)
+    })
+
+    const tokenChanged = (tokenId: number) => {
         isDropdownOpen = false
         selectedToken = tokens.filter(x => x.id === tokenId)[0]
+        dispatch(eventTypes.tokenChanged, selectedToken.name)
     }
-
 </script>
 
 <div
-    class="relative w-full"
+    class="relative w-full z-10"
     use:clickOutside={{
         enabled: isDropdownOpen,
         cb: () => (isDropdownOpen = false),

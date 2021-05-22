@@ -6,4 +6,7 @@ export const eventTypes = {
     confirmAction: 'confirmAction',
     success: 'success',
     passwordChanged: 'passwordChanged',
+    tokenChanged: 'tokenChanged',
+    currencyChanged: 'currencyChanged',
+    amountChanged: 'amountChanged',
 }
