@@ -3,9 +3,8 @@
     import { onMount } from 'svelte'
     import BackButton from '../../../components/elements/BackButton.svelte'
     import NoAccHeaderLayout from '../../../layouts/NoAccHeaderLayout.svelte'
-    import { activeWallet, settings, uiState } from '../../../stores/index'
+    import { activeWallet } from '../../../stores/index'
     import type Account from '../../../models/account'
-    import tooltip from '../../../utils/tooltip'
     import TokensDropdown from '../../../components/elements/TokensDropdown.svelte'
 
     export let params: any = {}

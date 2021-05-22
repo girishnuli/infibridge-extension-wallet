@@ -1,7 +1,7 @@
 <script lang="ts">
     import { _ } from 'svelte-i18n'
-    import { push } from 'svelte-spa-router'
-    import { navRoutes } from '../../../constants/navRoutes'
+    // import { push } from 'svelte-spa-router'
+    // import { navRoutes } from '../../../constants/navRoutes'
 
 </script>
 
