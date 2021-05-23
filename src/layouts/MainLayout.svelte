@@ -9,13 +9,12 @@
     import BusyModal from '../components/modals/BusyModal.svelte'
 
     const popupOpen = isPopupOpen()
-
 </script>
 
 <div
-    class="h-full mx-auto shadow-md {popupOpen
+    class="mx-auto shadow-md {popupOpen
         ? 'fixed-container'
-        : 'max-w-3xl sm:mt-4'}">
+        : 'h-full max-w-3xl sm:mt-4'}">
     <Header />
 
     <div

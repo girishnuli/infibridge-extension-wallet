@@ -14,6 +14,7 @@
     import { navRoutes } from '../../constants/navRoutes'
 
     const popupOpen = isPopupOpen()
+    console.log(popupOpen)
 
     let showEditWalletModal = false
     let showDeleteWalletModal = false
@@ -102,13 +103,12 @@
                 return '/images/logos/eth.png'
         }
     }
-
 </script>
 
 <div
-    class="h-full mx-auto shadow-md {popupOpen
+    class="mx-auto shadow-md {popupOpen
         ? 'fixed-container'
-        : 'max-w-3xl sm:mt-4'}">
+        : 'h-full max-w-3xl sm:mt-4'}">
     <header class="bg-gray-800" style="height: 55px;">
         <div class="mx-auto px-2">
             <div class="relative py-2 flex justify-between items-center">
