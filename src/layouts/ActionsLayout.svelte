@@ -19,7 +19,7 @@
         : 'h-full max-w-3xl sm:mt-4'}">
     <div
         class="flex flex-col w-full {popupOpen ? '' : 'pb-4'}"
-        style={popupOpen ? 'height: 544px;' : 'height: 800px;'}>
+        style={popupOpen ? 'height: 595px;' : 'height: 800px;'}>
         <div class="bg-gray-800">
             <nav>
                 <div class="max-w-3xl mx-auto px-2">

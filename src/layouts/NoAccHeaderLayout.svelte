@@ -16,7 +16,7 @@
 
     <div
         class="flex flex-col w-full {popupOpen ? '' : 'pb-4'}"
-        style={popupOpen ? 'height: 544px;' : 'height: 800px;'}>
+        style={popupOpen ? 'height: 595px;' : 'height: 800px;'}>
         <slot />
     </div>
 

@@ -97,7 +97,7 @@
     <div>
         <button
             on:click={() => openMenu()}
-            class="rounded-sm p-1 flex items-center text-gray-500 hover:text-gray-900 hover:bg-gray-400"
+            class="rounded-sm p-1 flex items-center text-gray-500 hover:text-white hover:bg-gray-600"
             id="options-menu"
             aria-haspopup="true"
             aria-expanded="true">
@@ -119,7 +119,7 @@
             out:fade={{ duration: 150, easing: cubicIn }}
             class="absolute z-10 right-0 mt-4 mb-3 px-1 w-screen max-w-sm">
             <div
-                class="rounded-sm shadow-lg ring-1 ring-black ring-opacity-5 max-h-96 overflow-y-scroll">
+                class="border border-gray-300 rounded-sm shadow-lg ring-1 ring-black ring-opacity-5 max-h-96 overflow-y-scroll">
                 <div class="p-3 bg-gray-200 flex justify-between">
                     {#if $activeWallet.wallet.walletType === WalletType.HD}
                         <div class="flow-root">
