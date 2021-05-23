@@ -68,6 +68,7 @@
     }
 
     const importAccount = async (accountType: AccountType) => {
+        // TODO: Do not import if address already exists in this wallet
         let walletLocked = true
 
         if (accountType === AccountType.ImportedPvtKey && privateKeyError) {
@@ -170,7 +171,6 @@
 
         uiState.setBusy(false)
     }
-
 </script>
 
 <div

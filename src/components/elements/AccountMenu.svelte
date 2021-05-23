@@ -86,7 +86,6 @@
                 )
         }
     }
-
 </script>
 
 <div
@@ -188,7 +187,7 @@
                                                 xmlns="http://www.w3.org/2000/svg"
                                                 class="h-5 w-5"
                                                 viewBox="0 0 20 20"
-                                                fill="currentColor">
+                                                fill="#47c942">
                                                 <path
                                                     fill-rule="evenodd"
                                                     d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z"
@@ -204,7 +203,7 @@
                                                 xmlns="http://www.w3.org/2000/svg"
                                                 class="h-5 w-5"
                                                 viewBox="0 0 20 20"
-                                                fill="currentColor">
+                                                fill="#b351f5">
                                                 <path
                                                     fill-rule="evenodd"
                                                     d="M18 8a6 6 0 01-7.743 5.743L10 14l-1 1-1 1H6v2H2v-4l4.257-4.257A6 6 0 1118 8zm-6-4a1 1 0 100 2 2 2 0 012 2 1 1 0 102 0 4 4 0 00-4-4z"
@@ -221,7 +220,7 @@
                                                 class="h-5 w-5"
                                                 xmlns="http://www.w3.org/2000/svg"
                                                 viewBox="0 0 20 20"
-                                                fill="currentColor">
+                                                fill="#51cff5">
                                                 <path
                                                     fill-rule="evenodd"
                                                     d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4zm2 6a1 1 0 011-1h6a1 1 0 110 2H7a1 1 0 01-1-1zm1 3a1 1 0 100 2h6a1 1 0 100-2H7z"
@@ -236,7 +235,7 @@
                                                 xmlns="http://www.w3.org/2000/svg"
                                                 class="h-5 w-5"
                                                 viewBox="0 0 20 20"
-                                                fill="currentColor">
+                                                fill="#f5a651">
                                                 <path
                                                     d="M10 12a2 2 0 100-4 2 2 0 000 4z" />
                                                 <path

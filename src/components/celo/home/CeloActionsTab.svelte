@@ -1,8 +1,7 @@
 <script lang="ts">
     import { _ } from 'svelte-i18n'
-    // import { push } from 'svelte-spa-router'
-    // import { navRoutes } from '../../../constants/navRoutes'
-
+    import { push } from 'svelte-spa-router'
+    import { navRoutes } from '../../../constants/navRoutes'
 </script>
 
 <div
@@ -29,7 +28,8 @@
         <div class="mt-2">
             <h3 class="text-lg font-medium">
                 <a
-                    on:click|preventDefault
+                    on:click|preventDefault={() =>
+                        push(navRoutes.CeloDiscoverIndexRoute)}
                     href="/"
                     class="focus:outline-none text-gray-800">
                     <span class="absolute inset-0" aria-hidden="true" />
@@ -80,7 +80,8 @@
         <div class="mt-2">
             <h3 class="text-lg font-medium">
                 <a
-                    on:click|preventDefault
+                    on:click|preventDefault={() =>
+                        push(navRoutes.CeloVoteIndexRoute)}
                     href="/"
                     class="focus:outline-none text-gray-800">
                     <span class="absolute inset-0" aria-hidden="true" />
@@ -131,7 +132,8 @@
         <div class="mt-2">
             <h3 class="text-lg font-medium">
                 <a
-                    on:click|preventDefault
+                    on:click|preventDefault={() =>
+                        push(navRoutes.CeloEarnIndexRoute)}
                     href="/"
                     class="focus:outline-none text-gray-800">
                     <span class="absolute inset-0" aria-hidden="true" />

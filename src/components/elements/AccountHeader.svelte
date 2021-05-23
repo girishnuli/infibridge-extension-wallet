@@ -10,6 +10,10 @@
 
     // $: isAccountConnected = true
     let showCopiedText = false
+    $: isTestNetwork = Blockchain.list()
+        .filter(x => x.name === $settings.activeBlockchainName)[0]
+        .networks.filter(x => x.networkId === $settings.activeNetworkId)[0]
+        .name.includes('Testnet')
 
     function copyAddress() {
         const success = copyTextToClipboard($activeWallet.activeAccount.address)
@@ -30,7 +34,6 @@
             `${activeNetwork.networkExplorerUrl}/address/${$activeWallet.activeAccount.address}/transactions`
         )
     }
-
 </script>
 
 <div class="flex flex-row items-center px-2 py-2">
@@ -78,6 +81,15 @@
     </div>
 
     <div class="flex-none flex flex-row">
+        <!-- Get test tokens -->
+        {#if isTestNetwork}
+            <button
+                type="button"
+                class="mr-2 inline-flex items-center px-2.5 py-1.5 border border-transparent text-xs font-medium rounded text-blue-700 bg-blue-100 hover:bg-blue-200 focus:outline-none">
+                Get Test Celo
+            </button>
+        {/if}
+
         <!-- Open in explorer button -->
         <button
             on:click={() => openAddressInCeloExplorer()}

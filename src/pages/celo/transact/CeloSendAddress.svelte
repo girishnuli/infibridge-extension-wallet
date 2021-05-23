@@ -39,7 +39,6 @@
     const reviewSend = (address: string) => {
         push(`${navRoutes.CeloReviewSendRoute}/${address}`)
     }
-
 </script>
 
 <NoAccHeaderLayout>
@@ -93,7 +92,7 @@
         <!-- OR -->
         <div class="mx-auto mt-8">
             <span
-                class=" w-14 h-14 p-4 rounded-full text-base font-medium bg-gray-600 text-white">
+                class=" w-12 h-12 p-3 rounded-full text-sm font-medium bg-blue-500 text-white">
                 {$_('OR')}
             </span>
         </div>
