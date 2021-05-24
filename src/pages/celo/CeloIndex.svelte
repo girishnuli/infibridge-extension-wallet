@@ -13,7 +13,6 @@
         if (tab === currentTab) return
         currentTab = tab
     }
-
 </script>
 
 <MainLayout>
