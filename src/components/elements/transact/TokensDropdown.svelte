@@ -13,13 +13,13 @@
         {
             id: 0,
             name: 'Celo',
-            balance: 0,
+            balance: 1999.99,
             isSelected: true,
         },
         {
             id: 1,
             name: 'cUSD',
-            balance: 0,
+            balance: 2475.99,
             isSelected: false,
         },
         {
