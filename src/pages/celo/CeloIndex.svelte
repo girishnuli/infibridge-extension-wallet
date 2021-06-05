@@ -1,11 +1,11 @@
 <script lang="ts">
     import CeloFundsTab from '../../components/celo/home/CeloFundsTab.svelte'
     import CeloTabs from '../../components/celo/home/CeloTabs.svelte'
-    import CeloTokensTab from '../../components/celo/home/CeloTokensTab.svelte'
     import CeloTransactionsTab from '../../components/celo/home/CeloTransactionsTab.svelte'
+    // import CeloTokensTab from '../../components/celo/home/CeloTokensTab.svelte'
+    // import CeloActionsTab from '../../components/celo/home/CeloActionsTab.svelte'
     import { CeloTab } from '../../models/enums/celotab'
     import MainLayout from '../../layouts/MainLayout.svelte'
-    import CeloActionsTab from '../../components/celo/home/CeloActionsTab.svelte'
 
     let currentTab = CeloTab.Funds
 
@@ -26,10 +26,10 @@
             <CeloFundsTab />
         {:else if currentTab === CeloTab.Transactions}
             <CeloTransactionsTab />
-        {:else if currentTab === CeloTab.Tokens}
+            <!-- {:else if currentTab === CeloTab.Tokens}
             <CeloTokensTab />
         {:else}
-            <CeloActionsTab />
+            <CeloActionsTab /> -->
         {/if}
     </div>
 </MainLayout>

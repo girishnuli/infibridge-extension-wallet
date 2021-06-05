@@ -26,7 +26,7 @@
                 dispatch(eventTypes.tabClicked, CeloTab.Transactions)}>
             Transactions
         </a>
-        <a
+        <!-- <a
             href="/"
             class={currentTab === CeloTab.Tokens ? 'active-tab' : 'normal-tab'}
             on:click|preventDefault={() =>
@@ -39,6 +39,6 @@
             on:click|preventDefault={() =>
                 dispatch(eventTypes.tabClicked, CeloTab.Actions)}>
             Actions
-        </a>
+        </a> -->
     </nav>
 </div>
