@@ -1,7 +1,7 @@
 /** @type {import("snowpack").SnowpackUserConfig } */
 
 module.exports = {
-    exclude: ['src/background.ts', 'src/content.ts'],
+    exclude: ['src/background.ts', 'src/content.ts', '*.license'],
     mount: {
         public: { url: '/', static: true },
         src: { url: '/dist' },
