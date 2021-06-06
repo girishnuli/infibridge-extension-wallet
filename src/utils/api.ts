@@ -6,16 +6,16 @@ export function getTokenBalanceUrl(
     address: string
 ) {
     if (isDevEnv()) {
-        return `http://localhost:5000/account/balance/${chain.toLowerCase()}/${networkId}/${address}`
+        return `https://token-api.infibridge.com/account/balance/${chain.toLowerCase()}/${networkId}/${address}`
     } else {
-        return `https://api.infibridge.com/account/balance/${chain.toLowerCase()}/${networkId}/${address}`
+        return `https://token-api.infibridge.com/account/balance/${chain.toLowerCase()}/${networkId}/${address}`
     }
 }
 
 export function getTokenPriceUrl(chain: string, altCurrency: string) {
     if (isDevEnv()) {
-        return `http://localhost:5000/market/price/${chain.toLowerCase()}/${altCurrency}`
+        return `https://token-api.infibridge.com/market/price/${chain.toLowerCase()}/${altCurrency}`
     } else {
-        return `https://api.infibridge.com/market/price/${chain.toLowerCase()}/${altCurrency}`
+        return `https://token-api.infibridge.com/market/price/${chain.toLowerCase()}/${altCurrency}`
     }
 }

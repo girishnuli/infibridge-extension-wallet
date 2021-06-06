@@ -10,6 +10,10 @@
     import SendAmountInput from '../../../components/elements/transact/SendAmountInput.svelte'
     import GasPriceInput from '../../../components/elements/transact/GasPriceInput.svelte'
     import { navRoutes } from '../../../constants/navRoutes'
+    import { CeloProvider } from '../../../libs/celo/EthersJSWrapper/CeloProvider'
+    import { CeloEthersWallet } from '../../../libs/celo/EthersJSWrapper/CeloEthersWallet'
+    import { utils } from 'ethers'
+    import type { CeloTransactionRequest } from '../../../libs/celo/EthersJSWrapper/CeloTransactionsWrapper'
 
     export let params: any = {}
     let address = ''
@@ -30,6 +34,57 @@
 
     const onCurrencyChanged = (currency: string) => {
         selectedCurrency = currency
+    }
+
+    const sendTransaction = async () => {
+        // test with baklava
+        const provider = new CeloProvider(
+            'https://baklava-forno.celo-testnet.org'
+        )
+        await provider.ready
+
+        // // Baklava validator accout
+        const from = 'FROM_ADDRESS'
+        const wallet = new CeloEthersWallet(
+            'PRIVATE_KEY',
+            provider
+        )
+
+        // const balance = await wallet.getBalance()
+        // console.log(`Balance: ${balance}`)
+
+        const amountToSend = utils.parseEther('1')
+        console.log(`Amount to send (in wei): ${amountToSend}`)
+        const amountInHex = amountToSend.toHexString()
+        console.log(`Amount to send (hex): ${amountInHex}`)
+
+        const gasPrice = await wallet.getGasPrice()
+        console.log(`Gas price: ${gasPrice}`)
+
+        const txCount = await provider.getTransactionCount(from)
+        console.log(`Tx count (for nonce): ${txCount}`)
+
+        // const transactionRequest = <CeloTransactionRequest>{
+        //     chainId: 62320,
+        //     from: from,
+        //     to: 'TO_ADDRESS',
+        //     value: amountToSend.toHexString(),
+        //     nonce: utils.hexlify(txCount),
+        //     gasPrice: gasPrice,
+        // }
+
+        // const estimatedGas = await wallet.estimateGas(transactionRequest)
+        // console.log(`Estimated gas: ${estimatedGas}`)
+        // transactionRequest.gasLimit = estimatedGas
+
+        // const signed = await wallet.signTransaction(transactionRequest)
+        // console.log(`Signed transaction: ${signed}`)
+
+        // // Send to validator group account
+        // const txResponse = await wallet.sendTransaction(transactionRequest)
+
+        // const txReceipt = await txResponse.wait()
+        // console.log(`Transaction hash: ${txReceipt.transactionHash}`)
     }
 </script>
 
@@ -137,7 +192,7 @@
                             Cancel
                         </button>
                         <button
-                            on:click={() => push(navRoutes.CeloIndexRoute)}
+                            on:click={() => sendTransaction()}
                             type="button"
                             class="primary-btn ml-2">
                             Send
