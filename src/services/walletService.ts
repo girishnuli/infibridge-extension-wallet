@@ -19,6 +19,7 @@ import Vault from '../models/vault'
 import { settings } from '../stores'
 import { isDevEnv } from '../utils/env'
 import { AccountType } from '../models/enums/accountType'
+import type SendAddressAccountDto from '../models/dto/ SendAddressAccountDto'
 
 const CELO_DERIVATION_PATH = "m/44'/52752'/0'"
 const ETH_DERIVATION_PATH = "m/44'/60'/0'"
@@ -656,6 +657,44 @@ export async function deleteWallet(id: string): Promise<boolean> {
     }
 
     return false
+}
+
+export async function getSendAddressAccountsDto(
+    chain: string
+): Promise<SendAddressAccountDto[]> {
+    let accounts: SendAddressAccountDto[] = []
+
+    try {
+        let wallets = await getWalletsInBlockchain(chain)
+
+        if (wallets && wallets.length > 0) {
+            // Sort descending since the order gets reversed after pushing into the array
+            wallets = wallets.sort((a, b) =>
+                a.nickName.localeCompare(b.nickName)
+            )
+            for (let i = 0; i < wallets.length; i++) {
+                const wallet = wallets[i]
+
+                if (wallet.accounts && wallet.accounts.length > 0) {
+                    for (let j = 0; j < wallet.accounts.length; j++) {
+                        const account = wallet.accounts[j]
+
+                        const accountDto = <SendAddressAccountDto>{
+                            group: `${wallet.nickName} > ${account.group}`,
+                            nickName: account.nickName,
+                            accountType: account.accountType,
+                            address: account.address,
+                        }
+                        accounts.push(accountDto)
+                    }
+                }
+            }
+        }
+    } catch (error) {
+        logMessage(error)
+    }
+
+    return accounts
 }
 
 export async function setActiveAccount(
