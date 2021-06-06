@@ -8,10 +8,16 @@
     import { getTrimmedAddress } from '../../../utils/wallet/accountUtil'
     import { AccountType } from '../../../models/enums/accountType'
     import tooltip from '../../../utils/tooltip'
-    import type Account from '../../../models/account'
     import { navRoutes } from '../../../constants/navRoutes'
+    import { getSendAddressAccountsDto } from '../../../services/walletService'
+    import type SendAddressAccountDto from '../../../models/dto/ SendAddressAccountDto'
 
-    $: groupedAccounts = groupBy($activeWallet.wallet.accounts, x => x.group)
+    let groupedAccounts: Record<string, SendAddressAccountDto[]>
+    $: getSendAddressAccountsDto($activeWallet.wallet.blockchain).then(
+        accounts => {
+            groupedAccounts = groupBy(accounts, x => x.group)
+        }
+    )
 
     let recipientAddress = ''
     let recipientAddressError = false
@@ -32,7 +38,7 @@
         }
     }
 
-    const accountSelected = (account: Account) => {
+    const accountSelected = (account: SendAddressAccountDto) => {
         reviewSend(account.address)
     }
 
@@ -98,116 +104,119 @@
         </div>
 
         <!-- Select own address -->
-        <div>
-            <label
-                for="own-accounts"
-                class="block text-base font-semibold text-gray-600 pt-4 ml-6"
-                >{$_('OwnAccounts').toLocaleUpperCase()}</label>
-            <div class="mt-2">
-                {#each Object.entries(groupedAccounts) as [group, accounts]}
-                    {#if accounts.filter(x => x.group === group && x.address !== $activeWallet.activeAccount.address).length > 0}
-                        <div
-                            class="border-t border-b border-blue-200 bg-blue-50 px-6 py-1 text-sm font-medium text-blue-500">
-                            <h3>{group}</h3>
-                        </div>
-                    {/if}
+        <div class="mt-4">
+            {#if groupedAccounts}
+                <div class="mt-2">
+                    {#each Object.entries(groupedAccounts) as [group, accounts]}
+                        {#if accounts.filter(x => x.group === group && x.address !== $activeWallet.activeAccount.address).length > 0}
+                            <div
+                                class="border-t border-b border-blue-200 bg-blue-50 px-6 py-1 text-sm font-medium text-blue-500">
+                                <h3>{group}</h3>
+                            </div>
+                        {/if}
 
-                    <div>
-                        {#each accounts as account}
-                            {#if account.address !== $activeWallet.activeAccount.address}
-                                <a
-                                    on:click|preventDefault={() =>
-                                        accountSelected(account)}
-                                    href="/"
-                                    class="account-item hover:bg-gray-100">
-                                    <span class="account-seq">
-                                        {#if account.accountType === AccountType.HD}
-                                            <!-- Heroicon location-marker -->
-                                            <svg
-                                                use:tooltip={{
-                                                    content: $_('HDAccountTip'),
-                                                }}
-                                                xmlns="http://www.w3.org/2000/svg"
-                                                class="h-5 w-5"
-                                                viewBox="0 0 20 20"
-                                                fill="currentColor">
-                                                <path
-                                                    fill-rule="evenodd"
-                                                    d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z"
-                                                    clip-rule="evenodd" />
-                                            </svg>
-                                        {:else if account.accountType === AccountType.ImportedPvtKey}
-                                            <!-- Heroicon key -->
-                                            <svg
-                                                use:tooltip={{
-                                                    content:
-                                                        $_('PvtKeyAccountTip'),
-                                                }}
-                                                xmlns="http://www.w3.org/2000/svg"
-                                                class="h-5 w-5"
-                                                viewBox="0 0 20 20"
-                                                fill="currentColor">
-                                                <path
-                                                    fill-rule="evenodd"
-                                                    d="M18 8a6 6 0 01-7.743 5.743L10 14l-1 1-1 1H6v2H2v-4l4.257-4.257A6 6 0 1118 8zm-6-4a1 1 0 100 2 2 2 0 012 2 1 1 0 102 0 4 4 0 00-4-4z"
-                                                    clip-rule="evenodd" />
-                                            </svg>
-                                        {:else if account.accountType === AccountType.ImportedKeystore}
-                                            <svg
-                                                use:tooltip={{
-                                                    content:
-                                                        $_(
-                                                            'KeystoreAccountTip'
-                                                        ),
-                                                }}
-                                                class="h-5 w-5"
-                                                xmlns="http://www.w3.org/2000/svg"
-                                                viewBox="0 0 20 20"
-                                                fill="currentColor">
-                                                <path
-                                                    fill-rule="evenodd"
-                                                    d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4zm2 6a1 1 0 011-1h6a1 1 0 110 2H7a1 1 0 01-1-1zm1 3a1 1 0 100 2h6a1 1 0 100-2H7z"
-                                                    clip-rule="evenodd" />
-                                            </svg>
-                                        {:else if account.accountType === AccountType.WatchAddress}
-                                            <svg
-                                                use:tooltip={{
-                                                    content:
-                                                        $_('WatchAddressTip'),
-                                                }}
-                                                xmlns="http://www.w3.org/2000/svg"
-                                                class="h-5 w-5"
-                                                viewBox="0 0 20 20"
-                                                fill="currentColor">
-                                                <path
-                                                    d="M10 12a2 2 0 100-4 2 2 0 000 4z" />
-                                                <path
-                                                    fill-rule="evenodd"
-                                                    d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z"
-                                                    clip-rule="evenodd" />
-                                            </svg>
-                                        {/if}
-                                    </span>
-                                    <div
-                                        class="ml-4 flex justify-between items-center w-full">
-                                        <div class="py-1">
-                                            <p
-                                                class="account-title flex items-center">
-                                                {account.nickName}
-                                            </p>
-                                            <p class="account-address">
-                                                {getTrimmedAddress(
-                                                    account.address
-                                                )}
-                                            </p>
+                        <div>
+                            {#each accounts as account}
+                                {#if account.address !== $activeWallet.activeAccount.address}
+                                    <a
+                                        on:click|preventDefault={() =>
+                                            accountSelected(account)}
+                                        href="/"
+                                        class="account-item hover:bg-gray-100">
+                                        <span class="account-seq">
+                                            {#if account.accountType === AccountType.HD}
+                                                <!-- Heroicon location-marker -->
+                                                <svg
+                                                    use:tooltip={{
+                                                        content:
+                                                            $_('HDAccountTip'),
+                                                    }}
+                                                    xmlns="http://www.w3.org/2000/svg"
+                                                    class="h-5 w-5"
+                                                    viewBox="0 0 20 20"
+                                                    fill="currentColor">
+                                                    <path
+                                                        fill-rule="evenodd"
+                                                        d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z"
+                                                        clip-rule="evenodd" />
+                                                </svg>
+                                            {:else if account.accountType === AccountType.ImportedPvtKey}
+                                                <!-- Heroicon key -->
+                                                <svg
+                                                    use:tooltip={{
+                                                        content:
+                                                            $_(
+                                                                'PvtKeyAccountTip'
+                                                            ),
+                                                    }}
+                                                    xmlns="http://www.w3.org/2000/svg"
+                                                    class="h-5 w-5"
+                                                    viewBox="0 0 20 20"
+                                                    fill="currentColor">
+                                                    <path
+                                                        fill-rule="evenodd"
+                                                        d="M18 8a6 6 0 01-7.743 5.743L10 14l-1 1-1 1H6v2H2v-4l4.257-4.257A6 6 0 1118 8zm-6-4a1 1 0 100 2 2 2 0 012 2 1 1 0 102 0 4 4 0 00-4-4z"
+                                                        clip-rule="evenodd" />
+                                                </svg>
+                                            {:else if account.accountType === AccountType.ImportedKeystore}
+                                                <svg
+                                                    use:tooltip={{
+                                                        content:
+                                                            $_(
+                                                                'KeystoreAccountTip'
+                                                            ),
+                                                    }}
+                                                    class="h-5 w-5"
+                                                    xmlns="http://www.w3.org/2000/svg"
+                                                    viewBox="0 0 20 20"
+                                                    fill="currentColor">
+                                                    <path
+                                                        fill-rule="evenodd"
+                                                        d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4zm2 6a1 1 0 011-1h6a1 1 0 110 2H7a1 1 0 01-1-1zm1 3a1 1 0 100 2h6a1 1 0 100-2H7z"
+                                                        clip-rule="evenodd" />
+                                                </svg>
+                                            {:else if account.accountType === AccountType.WatchAddress}
+                                                <svg
+                                                    use:tooltip={{
+                                                        content:
+                                                            $_(
+                                                                'WatchAddressTip'
+                                                            ),
+                                                    }}
+                                                    xmlns="http://www.w3.org/2000/svg"
+                                                    class="h-5 w-5"
+                                                    viewBox="0 0 20 20"
+                                                    fill="currentColor">
+                                                    <path
+                                                        d="M10 12a2 2 0 100-4 2 2 0 000 4z" />
+                                                    <path
+                                                        fill-rule="evenodd"
+                                                        d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z"
+                                                        clip-rule="evenodd" />
+                                                </svg>
+                                            {/if}
+                                        </span>
+                                        <div
+                                            class="ml-4 flex justify-between items-center w-full">
+                                            <div class="py-1">
+                                                <p
+                                                    class="account-title flex items-center">
+                                                    {account.nickName}
+                                                </p>
+                                                <p class="account-address">
+                                                    {getTrimmedAddress(
+                                                        account.address
+                                                    )}
+                                                </p>
+                                            </div>
                                         </div>
-                                    </div>
-                                </a>
-                            {/if}
-                        {/each}
-                    </div>
-                {/each}
-            </div>
+                                    </a>
+                                {/if}
+                            {/each}
+                        </div>
+                    {/each}
+                </div>
+            {/if}
         </div>
     </div>
 </NoAccHeaderLayout>
