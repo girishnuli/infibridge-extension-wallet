@@ -21,6 +21,13 @@
     let selectedToken = ''
     let selectedCurrency = ''
 
+    // TODO:
+    // - Integrate with registry, goldtoken and stabletoken contracts
+    // - Calculate and show correct gas fees for chosen token, transaction amount and gas currency
+    // - Ensure TO address is valid
+    // - Ensure send amount covers available balance and gas costs
+    // -
+
     onMount(() => {
         address = params.address
         savedAccount = $activeWallet.wallet.accounts.find(
@@ -45,10 +52,7 @@
 
         // // Baklava validator accout
         const from = 'FROM_ADDRESS'
-        const wallet = new CeloEthersWallet(
-            'PRIVATE_KEY',
-            provider
-        )
+        const wallet = new CeloEthersWallet('PRIVATE_KEY', provider)
 
         // const balance = await wallet.getBalance()
         // console.log(`Balance: ${balance}`)
