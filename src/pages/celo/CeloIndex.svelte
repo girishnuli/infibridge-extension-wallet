@@ -4,7 +4,7 @@
     import CeloTransactionsTab from '../../components/celo/home/CeloTransactionsTab.svelte'
     // import CeloTokensTab from '../../components/celo/home/CeloTokensTab.svelte'
     // import CeloActionsTab from '../../components/celo/home/CeloActionsTab.svelte'
-    import { CeloTab } from '../../models/enums/celotab'
+    import { CeloTab } from '../../chains/celo/models/enums/celotab'
     import MainLayout from '../../layouts/MainLayout.svelte'
 
     let currentTab = CeloTab.Funds

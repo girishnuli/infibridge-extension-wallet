@@ -1,5 +1,5 @@
 import { chains } from '../constants/constStrings'
-import type { CeloAccountBalance } from './interfaces/celo/celoAccountBalance'
+import type { CeloAccountBalance } from '../chains/celo/models/interfaces/celoAccountBalance'
 
 export const getDefaultCeloBalance = (address: string) => {
     return <CeloAccountBalance>{

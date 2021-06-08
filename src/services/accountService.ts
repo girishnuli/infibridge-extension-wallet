@@ -2,7 +2,7 @@ import { getVault, replaceWalletInVault } from './walletService'
 import type Account from '../models/account'
 import axios from 'axios'
 import { getTokenBalanceUrl, getTokenPriceUrl } from '../utils/api'
-import type { CeloAccountBalance } from '../models/interfaces/celo/celoAccountBalance'
+import type { CeloAccountBalance } from '../chains/celo/models/interfaces/celoAccountBalance'
 import { BigNumber } from 'bignumber.js'
 import { getDefaultCeloBalance } from '../models/defaultBalances'
 
